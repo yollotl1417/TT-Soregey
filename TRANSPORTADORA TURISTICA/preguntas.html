@@ -1,0 +1,119 @@
+     <!doctype html>
+<html lang="es"> 
+    <head>
+      <meta  charset="UTF-8">
+      <meta name="viewport"
+      content="width=device-width,initial-scale=1.0">
+      <link rel="stylesheet" href="style.css">
+      <title>Servicios|TT Soregey SA de CV</title>
+      <link rel="stylesheet" href="style.css" />
+      </head>
+      <body>
+    <!--ENCABEZADO-->
+    <header class="encabezado">
+      <div class="logo-texto">
+        <img src="logoSoregey.png" alt="logoSoregey">
+        <span class="slogan">Tu mejor transporte confiable y <br>seguro en el Caribe Mexicano</span>
+       
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html">INICIO</a>
+      <div class="dropdown">
+        <a href="#">SERVICIOS</a>
+        <div class="dropdown-content">
+          <a href="unidades.html">UNIDADES</a>
+          <a href="servicios.html">SERVICIOS</a>
+        </div>
+      </div>
+        <a href="contacto.html">CONTACTO</a>
+      </nav>
+    </header><!--hasta aca se acaba el menu de navegacion-->
+    <center><section class="faq" id="faq">
+        <h2>Preguntas Frecuentes</h2></center>
+
+        <center><div class="acordeon">
+    <button class="acordeon-btn">¿Cuál es su política de cancelación?</button>
+    <div class="acordeon-panel">
+      <p>**Cancelación gratuita hasta 24 horas antes del servicio.<br>
+         **Reembolso al 100 % en caso fortuito o de fuerza mayor.</p>
+    </div>
+
+    <button class="acordeon-btn">¿Cuáles son los métodos de pago?</button>
+    <div class="acordeon-panel">
+      <p>- Pago con tarjeta de crédito/débito.<br>
+         - Contado al iniciar el servicio (Recomendado).</p>
+    </div>
+
+    <button class="acordeon-btn">¿Se emite facturación?</button>
+    <div class="acordeon-panel">
+      <p>* Sí, contamos con inscripción en SAT.<br>
+         Solo se agrega el 16% de IVA.</p></center>
+    </div>
+  </div>
+</section>
+
+
+    
+     <!--PIE DE PÁGINA-->
+      <footer class="footer">
+    <div class="footer-container">
+      <!--izquierda LOGO de la empresa-->
+      <div class="footer-izquierda">
+        <br><img src="LOGO-PIE-PAGINA.jpg" alt="logoSoregey" class="footer-logo">
+      </div>
+         <!--DERECHA DEL CUADRO AZUL-->
+  <div class="footer-derecha">
+  <a href="preguntas.html" class="faq-link"><strong>PREGUNTAS FRECUENTES</strong></a>
+
+  <p><strong>CONTÁCTANOS</strong></p>
+
+  <!-- WhatsApp -->
+  <p>
+    <a href="https://wa.me/529983975291" target="_blank" class="contact-link">
+      <i class="fab fa-whatsapp"></i>&nbsp; 998 39752 91
+    </a>
+  </p>
+
+  <!-- Correo -->
+  <p>
+    <a href="mailto:transportadora.soregey22@gmail.com" class="contact-link">
+      <i class="fas fa-envelope"></i>&nbsp;&nbsp;transportadora.soregey22@gmail.com
+    </a>
+  </p>
+
+  <!-- Facebook -->
+  <p>
+    <a href="https://www.facebook.com/profile.php?id=61550115497462" target="_blank" class="contact-link">
+      <i class="fab fa-facebook"></i>&nbsp;&nbsp;Facebook
+    </a>
+  </p>
+  <!-- Instagram -->
+  <p>
+    <a href="https://www.instagram.com/tt.soregey.cancun?igsh=ejZ5Y2J1ODdrODM=" target="_blank" class="contact-link">
+      <i class="fab fa-instagram"></i>&nbsp;&nbsp;Instagram
+    </a>
+  </p>
+
+  <!-- Ubicación (sin enlace) -->
+  <p><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;Cancún, Quintana Roo</p>
+</div>
+    </div>
+      </footer>
+      <script>
+  const botones = document.querySelectorAll(".acordeon-btn");
+
+  botones.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const panel = btn.nextElementSibling;
+      const abierto = panel.style.display === "block";
+
+      // Cierra todos los paneles
+      document.querySelectorAll(".acordeon-panel").forEach(p => p.style.display = "none");
+
+      // Abre solo el que se hizo clic
+      panel.style.display = abierto ? "none" : "block";
+    });
+  });
+</script>
+      </body>
+</html>
