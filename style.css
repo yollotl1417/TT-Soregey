@@ -1,0 +1,853 @@
+*{/* incluye todos los elementos HTML por defecto*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*el tamaño total de los elementos van a incluir padding y border*/
+}
+/* ESTILO GLOBAL*/
+body { /*cuerpo del documento*/
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6; /*espacio entre textos*/
+    background-color: white; /*color de fondo*/
+}
+.encabezado{ 
+    display: flex; /*alinea los elementos*/
+    justify-content: space-between; /*separa elementos logo a la izquierda y menú a la derecha*/
+    align-items: center; /*centra verticalmente los elementos del header*/
+    padding: 10px 30px; /*margen*/
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /*añade sombra a los botones*/
+    color: #1848a0; /*colores de las letras*/
+    flex-wrap: nowrap;
+}
+.logo-texto{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 100%;
+}
+.logo-texto img{ /*imagen del logo*/
+    height: 80px;
+}
+.slogan { /*letras del slogan*/
+    font-size: 9px;
+    color: #1848a0;
+    font-weight: bold;
+    line-height: 1.2;
+    display: inline-block;
+}
+nav{
+    display: flex;
+gap: 10px; /*espacio entre enlaces*/
+align-items: center; 
+}
+nav a{
+margin: 0 1px; /*espacio entre enlaces*/
+text-decoration: none; /*quita subrayado de los enlaces*/
+color:#1848a0;
+font-weight: bold;
+}
+
+/*MENÚ DESPLEGABLE servicios c*/
+/*referencia de posicion al contenedor .dropdown para que los modelos hijos puedan posicionarse relativamente a este*/
+/*inline-block para que se comporte comoun boton de enlace*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display:none; /*oculta el submenu por defecto*/
+    position: absolute; /*posiciona el menú justo debajo de servicios*/
+    background-color: white; /*fondo blanco del submenu*/
+    min-width: 0px; /*ancho minimo del submenu*/
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /*sombra que agrega al rededor*/
+    z-index: 1000; /*asegura que el menu se muestre encima de otros elementos*/
+    text-align: left; /*alinea los textos de los enlaces de la izquierda*/
+}
+.dropdown-content a{
+    color: #1848a0; /*color del texto*/
+    padding: 12px 16 px; /*espacio interno para que el enlace sea mas facil de hacer clic*/ 
+    text-decoration: none; /*elimina el subrayado de los enlaces*/
+    display: block; /*cada enlace ocupa toda unna linea*/
+    font-weight: bold; /*para que el texto este en negritas*/
+}
+.dropdown-content a:hover { /*hover: da el estilo cuando se pasa el mouse por encima*/
+    background-color: #f1f1f1; /*da fondo gris como efecto visual*/
+}
+.dropdown:hover .dropdown-content { /*cuando se pasa el cursor por el menú principal*/
+    display: block; /*hace al submenu visible*/
+}
+.dropdown > a {
+color: #1848a0;
+font-weight: bold;
+text-decoration: none;
+padding: 10px 15px; /*estilos basicos*/
+display: inline-block; /*para que actue como un boton/enlace clickleable con espacio*/
+}
+/*empieza carousel de indez*/
+.slider-box{
+    width: 100%;/*ancho de la imagen*/
+    max-width: 1350px; /*largo de la imagen*/
+    height: 300px;/*aleja la imagen del quienes somos*/
+    overflow: hidden;
+   margin: 5px auto;/*espacio entre el encabezado y la imagen*/
+   position: relative;
+}
+.slider-box ul{
+    display: flex;
+    padding: 0;/*para que no salgan dos imagenes*/
+    width: 400%;
+    animation: slide 20s steps(4) infinite;
+}
+.slider-box li{
+    width: 100%;
+    /*position: relative;*/
+    list-style: none;
+}
+.slider-box img{
+   /* flex-shrink: 0;/*no se encoge los otros se ajusta*/
+   /* max-width: 100%;/*minimo que puede tener el ancho*/
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    display: block;
+}
+@keyframes slide {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-100%);}/*no mover, esto es lo que hace que las 4 imagenes se vean bien*/
+   
+} /*termina carrousel index*/
+
+
+.quienes{
+    margin: 20px auto;/*espacio entre la imagen y el texto*/
+    font-weight: bold;
+    color: #1848a0;
+    font-size: 110%;
+}
+.contenido-quienes{
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+     font-size: 100%;
+     text-align: justify;
+     font-weight: bold;
+}
+.banda-azul{
+    background-color: #1848a0;
+    color: #1848a0;
+}
+.valores{
+    font-weight: bold;
+    color: #1848a0;
+    font-size: 110%;
+}
+.contenido-valores{
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+     font-size: 100%;
+     font-weight: bold;
+}
+.experiencia{
+    display: flex; /*coloca el texto e imaen uno a lado del otro*/
+    justify-content: space-between; /*deja espacio entre el texto y la imagen*/
+    flex-wrap: wrap; /*se apilan si no ay espacio*/
+    gap: 200px; /*espacio que se agrega entre las columnas*/
+    padding: 40px 200px; /*40 es la separacion de arriba y abajo y los 20 el de los lados*/
+}
+.texto-experiencia{
+    flex: 1; /*se le da al texto el mismo anncho que la imagen*/
+    max-width: 1000px; /*limita el ancho del texto*/
+    text-align: left; /*alinea el texto justificadamente*/
+    font-weight: bold;/*letras negritas*/
+    line-height: 1.6;/*espacio entre lineas*/
+}
+.imagen-experiencia{
+    flex: 1; /*imagen con la misma proporcion que el texto*/
+    display: flex;/*convierte el contenedor en flexbox*/
+    justify-content: right;
+    align-items: center;
+}
+.imagen-experiencia img{
+    max-width: 300px;/*ancho de la imagen*/
+    height: auto;/*evita que la imagen se deforme*/
+}
+.testimonios h1{
+    color:white;/*color de las letras de testimonio*/
+}
+.testimonios{
+    background-color: #1848a0;
+    color:black; /*color de letras*/
+    padding: 10px 20px; /*espacio interno*/
+    text-align: center; /*centra el titulo*/
+}
+.contenedor-testimonios{
+    display: flex; /*coloca los testimonios en linea horizontales*/
+    justify-content: center;/*centra los testimonios horizontalmente*/
+    flex-wrap: wrap;/*los cuadros se acomodan uno de bajo del otro en pantallas pequeñas*/
+    gap: 100px;/*espacio entre contenedores/cuadros*/
+}
+.testimonio{
+    background-color: white;/*color de cada testimonio */
+    border-radius: 10px;/*redondea los bordes de cada testimonio*/
+    padding: 20px; /*espacio para que el texto no se pegue a los bordes*/
+    width: 280px; /*ancho del cuadro*/
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);/*efecto de tarjeta flotante*/
+    text-align: left;/*alineacion del texto a la izquierda*/
+    font-size: 13px;/*tamaño letra*/
+    transition: transform 0.3s ease;/*animacion cada que pase el cursor en el cuadro*/
+}
+.testimonio:hover{
+    transform: translateY(-5px);/*el cuadro se eleva 5px cada que se pasa el mouse por ahi*/
+}
+.estrellas{
+    text-align: center;
+    color:#f5c518;
+    font-size:25px;
+    margin-bottom: 8px; /*espacio entre las etrellas y el texto*/
+}
+
+.testimonio{
+    background-color: white;
+}
+@media(max-width:600px){
+    .testimonio{
+        width:90%;
+    }
+}
+.area-blanca{
+    background-color: white;
+    color:#f1f1f1;
+}
+.footer{ /*pie de pagina*/
+    background-color: #1848a0; /*fondo azul*/
+    color: white; /*color letras e iconos*/
+    padding: 10px 20px; /*espacio interno arriba/ a lado*/
+    font-family: Arial, Helvetica, sans-serif; /*tipo de fuente*/
+}
+.footer-container{
+    display: flex; /*diseño en fila*/
+    justify-content: center; /*distribuye contenido en izquierda y derecha*/
+    align-items:flex-start;/* pone en el centro a lo largo el texto*/
+    gap: 400px;/*espacio entre la parte derecha y la izquierda*/
+    flex-wrap: wrap; /*se acomoda a celular*/
+    margin: 0 auto;/*centra horizontalmente el contenedor dentro del footer*/
+}
+.footer-izquierda{
+flex: 1; /*ocupa una parte del espacio disponible*/
+text-align: left; /*alinea logo a la izquierda*/
+}
+.footer-logo{
+    width: 400px; /*tamaño del logo*/
+    max-width: 500%; /*el logo se adapta si es mas pequeño*/
+}
+.footer-derecha{
+    flex: 1; /*ocupa el mismo espacio que la columna izquierda*/
+    text-align:left;/*alinea texto a la derecha*/
+    padding: 50px 40px; /*bordes*/
+}
+.footer-derecha a{ /*enlaces*/
+    color: white; /*color del enlace*/
+    text-decoration: none; /*quita el subrayado del enlace*/
+    font-size: 12px;
+    line-height: 2px;
+}
+.footer-derecha p{/*parrafos de la derecha*/
+    margin: 4px 0; /*espaciado entre cada renglon*/
+    line-height: 1.3;/*junta las lineas*/
+    font-size: 12px;
+   
+}
+/*finaliza el bloque inicio y lo unico estatico para todo es pie de pagina y encabezado*/
+/*bloque unidades*/
+.barra-servicios{
+background-color: #1848a0; /*color de fondo*/
+color: white;/*color texto*/
+display: flex;/*alinea horizontalmente*/
+justify-content: space-around;/*espacio uniforme entre elementos*/
+align-items: center;/*centra verticalmente*/
+padding: 10px 20px;/*espaciado interior*/
+flex-wrap: wrap;/*acomoda a los elementos si no caben*/
+text-align: center;/*centra el texto en elementos hijos*/
+gap: 10px;/*espacio entre elementos*/
+}
+.barra-servicios p{
+    margin: 5px;/*maegen para separar lineas*/
+    font-weight: bold;/*en negrita*/
+    font-size: 1rem;/*tamaño base 16px*/
+}
+.barra-servicios button{
+    background-color: #1848a0;
+    color: white;
+    border: 2px solid white;/*borde blanco*/
+    padding: 8px 16px; /*espacio interno*/
+    border-radius: 20px; /*bordes redondeado,tipo pastilla*/
+    font-weight: bold;
+    cursor: pointer; /*cambia a manita a pasar el cursor*/
+    transition: 0.3s; /*suavisa los efectos del hover*/
+}
+.barra-servicios button:hover{
+    background-color: white;/*fondo blanco al pasar el mouse*/
+    color:#1848a0;
+}
+.slider-unidades{/*comiensa carousel unidades*/
+    width: 100%;
+    max-width: 1500px;
+    height: 300px;
+    overflow: hidden;
+   margin: 1px auto;/*espacio entre el encabezado y la imagen*/
+   position: relative;
+}
+.slider-unidades ul{
+    display: flex;
+    padding: 0;
+    width: 400%;
+    animation: slide 20s steps(4) infinite;
+}
+.slider-unidades li{
+    width: 100%;
+    /*position: relative;*/
+    list-style: none;
+}
+.slider-unidades img{
+    /*flex-shrink: 0;/*no se encoge los otros se ajusta*/
+   /* max-width: 100%;/*minimo que puede tener el ancho*/
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+@keyframes slide {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-100%);}/*no mover, esto es lo que hace que las 4 imagenes se vean bien*/
+   
+} /*termina carrousel unidades*/
+.bloque-unidades h2 {
+  text-align: center; /* Centrado */
+  color: #1848a0; /* Azul */
+  font-size: 2rem; /* Tamaño grande */
+  margin-top: 10px; /* Separación arriba */
+}
+.subtitulo {
+  text-align: center;
+  color: #1848a0;
+  font-size: 1.5rem;
+  margin-bottom: 2px;
+}
+.info-unidades {
+  display: flex; /* Alineación horizontal */
+  justify-content: space-between; /* Espacio entre elementos */
+  align-items: center; /* Alineación vertical */
+  flex-wrap: wrap; /* Se adapta si no caben en una línea */
+  padding: 2px 40px; /* Espaciado interno */
+  margin-top: 0px;
+  gap: 20px; /* Espacio entre columnas */
+  text-align: justify; /* Justifica los textos */
+}
+.info-unidades div {
+  flex: 1; /* Cada columna ocupa mismo ancho */
+  min-width: 250px; /* Mínimo 250px para adaptabilidad */
+}
+.info-unidades h4 {
+  color: #1848a0; /* Azul */
+  font-size: 1.1rem; /* Tamaño de subtítulo */
+  margin-top: 10px;
+}
+.info-unidades img {
+  max-width: 600px; /* Tamaño máximo de la imagen */
+  height: auto; /* Ajusta proporcionalmente */
+  display: block;
+  margin: auto; /* Centra horizontalmente */
+}
+.modelo {
+  text-align: center;
+  font-style: arial;
+  color:#1848a0;
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+.detalles-servicios {
+  display: grid; /* Sistema de rejilla */
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Columnas automáticas de mínimo 250px */
+  gap: 15px; /* Espacio entre ítems */
+  background-color: #1848a0; /* Fondo azul */
+  color: white;
+  padding: 20px; /* Espaciado interno */
+  list-style: none; /* Sin viñetas */
+}
+.detalles-servicios li::before {
+  content: "\2022 "; /* Agrega un punto tipo viñeta manualmente */
+  margin-right: 5px; /*separacion entre el punto y la palabra*/
+  margin-bottom: 4px;
+}
+.garantias {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; /* Espacio entre imágenes */
+  margin: 20px auto;
+  flex-wrap: wrap; /* Para que se adapten a celular */
+}
+.garantias img {
+  height: 100px; /* Altura fija */
+  object-fit: contain; /* Ajusta la imagen sin distorsión */
+}
+.galeria{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #1848a0;
+}
+.galeria-container {/*empieza apartado de galeria*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 20px auto;
+}
+
+.galeria-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 15px;
+  max-width: 80%;
+}
+
+.galeria-scroll img {
+  width: 250px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  height: auto;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+.galeria-scroll img:hover{
+    transform: scale(1.1); /*c uan to  aumen ta  su   tam a ñ o*/
+    z-index: 1;
+}
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+.lightbox img{
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px black;
+}
+/*mostrar el lightbox*/
+.lightbox.open {
+    display: flex;
+}
+.flecha-izquierda, .flecha-derecha {
+  background-color: #0d3c8f;
+  color: white;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  }/*hasta aqui se acaba el apartado de galeria en unidades*/
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+/*se termina carrousel*/
+.otras-unidades {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.otras-unidades h2 {
+  color: #0d3c8f;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+.contenedor-otras-unidades {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.unidad-extra {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.unidad-extra img {
+  width: 200px;
+  height: auto;
+  margin: 10px;
+  object-fit: contain;
+}
+
+.unidad-extra p {
+  font-weight: bold;
+  color: #0d3c8f;
+}
+
+/* Estilo especial para las dos imágenes de JAC */
+.grupo-jac {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.cotizacion-unidad {
+  text-align: center;
+  margin: 40px auto 20px;
+  font-size: 1.2rem;
+  color: #0d3c8f;
+}
+
+.cotizacion-unidad a {
+  color: #0d3c8f;
+  font-weight: bold;
+  text-decoration: none;/*quita la linea del enlace*/
+}
+
+.cotizacion-unidad a:hover {
+  color: #083070;
+  
+}/*hasta aqui acaba el apartado de unidades*/
+/*aqui empieza el apartado de servicios*/
+.slider-servicios{/*comiensa carousel servicios*/
+    width: 100%;
+    max-width: 1400px;
+    height: 300px;
+    overflow: hidden;
+   margin: 1px auto;/*espacio entre el encabezado y la imagen*/
+   position: relative;
+}
+.slider-servicios ul{
+    display: flex;
+    padding: 0;
+    width: 400%;
+    animation: slide 20s steps(4) infinite;
+}
+.slider-servicios li{
+    width: 100%;
+    /*position: relative;*/
+    list-style: none;
+}
+.slider-servicios img{
+    /*flex-shrink: 0;/*no se encoge los otros se ajusta*/
+   /* max-width: 100%;/*minimo que puede tener el ancho*/
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+@keyframes slide {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-100%);}/*no mover, esto es lo que hace que las 4 imagenes se vean bien*/
+   
+}/*termina el carousel de servicios*/
+.seccion-servicios{
+ font-size: 25px;
+ color: #1848a0;
+ font-weight: bold;
+}
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.servicio-item {
+    display: flex;
+    flex-direction: row-reverse; /*reinvierte el orden imagenes a la derecha texto a la izquierda*/
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1000px;
+    margin: 2rem auto;
+    gap: 2rem;
+}
+
+.servicio-item img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius:10px;
+}
+
+.servicio-item p {
+  flex: 1;
+  text-align: left;
+  font-weight: bold;
+  color: #0d3c8f;
+  font-size: 1.2rem;
+}
+
+/*responsivd*/
+@media (max-width:768px){
+    .servicio-item{
+        flex-direction: column;
+        text-align: center;
+    }
+    .servicio-item p{ 
+        text-align: center;
+    }
+}
+/*ACABA EL APARTADO DE SERVICIOS*/
+
+/*EMPIEZA EL APARTADO DE CONTACTANOS*/
+/* ======== ESTILOS CONTACTO ======== */
+/* Cuadro azul superior */ .contacto-titulo { background-color: #0d3c8f; color: white; padding: 20px; text-align: center; font-size: 1.3rem; font-weight: bold; }
+/* Contenedor principal */ .formulario-contacto { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; padding: 40px; background-color: #f7f7f7; }
+/* Formulario */ .formulario { flex: 1 1 300px; max-width: 500px; }
+.formulario h3 { color: #0d3c8f; margin-bottom: 20px; text-align: center; }
+.formulario input, .formulario textarea { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; box-sizing: border-box; }
+.formulario textarea { resize: vertical; min-height: 100px; }
+.formulario button { width: 100%; background-color: #0d3c8f; color: white; padding: 12px; font-weight: bold; border: none; border-radius: 20px; cursor: pointer; transition: background-color 0.3s; }
+.formulario button:hover { background-color: #1848a0; }
+/* Información de contacto */ .info-contacto { flex: 1 1 300px; max-width: 500px; color: #0d3c8f; }
+.info-contacto h4 { margin-top: 0; margin-bottom: 10px; font-size: 1.1rem; }
+.info-contacto p { margin: 5px 0; }
+.redes { display: flex; gap: 15px; flex-wrap: wrap; margin: 10px 0; }
+.redes img { height: 35px; width: auto; }
+/* Responsive */ @media screen and (max-width: 768px) { .formulario-contacto { padding: 20px; } }
+@media screen and (max-width: 480px) { .formulario input, .formulario textarea, .formulario button { font-size: 0.95rem; } }
+/*termina el  apartado  de contactanos*/
+
+/*empieza el apartado de reserva ya*/
+.portadatt{
+    width: 500%;
+    max-height: 1500px;/*altura*/
+    overflow: hidden;
+}
+.portadatt img{
+    width: 1400px;/*ajusta la imagen a lo largo*/
+    height:500px; /*ajusta la imagen a lo alto*/
+    display: block;/*ocupa todo el ancho del contenedor*/
+    object-fit: cover;/*ajusta el contenido sin distorcionar la imagen
+}
+.formulario-reserva label{
+    font-size: 11px;/*letras que estan arriba de los cuadros del formulario*/
+}
+                                                                                                                                                                           
+.reserva-ahora{
+    background-color: #fff;
+    color:#1848a0;
+}
+.reserva-container { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem; 
+ }
+
+.reserva-header { 
+    color: #1848a0; 
+    text-align: center; 
+    font-size: 20px; 
+    margin-bottom: 1rem; }
+    
+.formulario-caja {
+  background-color: #cce5ff;
+  border: 2px solid #000;
+  border-radius: 15px;
+  padding: 2rem;
+  max-width: 900px;
+  width: 90%;
+  margin: auto;
+}
+
+.formulario-reserva {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fila {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.campo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.input, select {
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid #003366;
+  font-size: 14px;
+  width: 100%;
+}
+
+.label {
+  font-weight: bold;
+  color: #002a66;
+  margin-bottom: 0.3rem;
+}
+.boton-cotizar {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.boton-cotizar button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* Responsive */ @media screen and (max-width: 768px) { 
+    .formulario-reserva input, .formulario-reserva select, .formulario-reserva button { width: 100%; }
+.formulario-reserva { flex-direction: column; gap: 1.2rem; } }
+/*termina el apartado de reservas*/
+
+/*empieza el apartado de preguntas*/
+.faq {
+  padding: 50px 20px;
+  background-color: #f4f8ff;
+  text-align: center;
+}
+
+.faq h2 {
+  font-size: 2.5rem;
+  color: #003d7c;
+  margin-bottom: 30px;
+}
+
+.acordeon {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.acordeon-btn {
+  width: 100%;
+  background-color: white;
+  color: #1848a0;
+  font-weight: bold;
+  text-align: left;
+  padding: 15px;
+  font-size: 1.1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.acordeon-btn:hover {
+  background-color: #e8f0ff;
+}
+
+.acordeon-panel {
+  padding: 0 15px;
+  background-color: #ffffff;
+  display: none;
+  overflow: hidden;
+  border-left: 3px solid #1848a0;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  border-radius: 0 0 8px 8px;
+}
+
+.acordeon-panel p {
+  padding: 15px 0;
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+@media (max-width: 768px) {
+  .fila {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .campo {
+    width: 100%;
+  }
+
+  .input,
+  select {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .boton-cotizar button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .formulario-caja {
+    padding: 1rem;
+  }
+
+  .reserva-header {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .formulario-caja {
+    padding: 0.8rem;
+    border-radius: 10px;
+  }
+
+  .reserva-header {
+    font-size: 16px;
+  }
+
+  .formulario-reserva input,
+  .formulario-reserva select,
+  .formulario-reserva button {
+    font-size: 15px;
+  }
+}
